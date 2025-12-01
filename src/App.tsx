@@ -29,8 +29,13 @@ function App() {
         }
 
         const data = await res.json();
+        // console.log(data);
+        // console.log(data.advice);
+        // console.log(data[advice]);
         setData(data);
         console.log(data);
+        console.log(data.id);
+        console.log(data["id"]);
         console.log(data.advice);
         console.log(data[advice]);
       } catch (err) {
@@ -42,6 +47,10 @@ function App() {
 
     fetchData();
   }, []);
+
+  function addingAdvice() {
+    setAdvice(data[advice]);
+  }
 
   return (
     <div>
