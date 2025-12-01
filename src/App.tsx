@@ -28,16 +28,21 @@ function App() {
           throw new Error("Network response was not ok");
         }
 
+        // console.log(res);
+        // console.log(res.json());
+
         const data = await res.json();
-        // console.log(data);
+        console.log(data);
         // console.log(data.advice);
         // console.log(data[advice]);
         setData(data);
+        setAdvice(data.slip.advice);
+        setAdviceId(data.slip.id);
         console.log(data);
-        console.log(data.id);
-        console.log(data["id"]);
-        console.log(data.advice);
-        console.log(data[advice]);
+        console.log(data.slip.id);
+        // console.log(data["id"]);
+        console.log(data.slip.advice);
+        // console.log(data[advice]);
       } catch (err) {
         setError(err);
       } finally {
@@ -48,9 +53,11 @@ function App() {
     fetchData();
   }, []);
 
-  function addingAdvice() {
-    setAdvice(data[advice]);
-  }
+  // function addingAdvice() {
+  //   setAdvice(data.slip.advice);
+  // }
+
+  // addingAdvice();
 
   return (
     <div>
@@ -62,7 +69,9 @@ function App() {
 
         <img src="./images/pattern-divider-mobile.svg" alt="pattern divider" />
 
-        <img src="./images/icon-dice.svg" alt="icon dice" />
+        <button className='bg-[url("./images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] '></button>
+
+        {/* <img src="./images/icon-dice.svg" alt="icon dice" /> */}
 
         <div className="attribution text-[11px] text-center">
           Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
