@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import './App.css'
 
 function App() {
@@ -8,6 +8,10 @@ function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const handleClick = useCallback(() => {
+    setAdvice(data.advice);
+  }, []);
 
   useEffect(() => {
     // fetch("https://api.adviceslip.com/advice")
@@ -50,8 +54,12 @@ function App() {
       }
     };
 
+    // const handleClick = () => {
+    // setAdvice(data.slip.advice);
+    // }
+
     fetchData();
-  }, []);
+  }, [handleClick]);
 
   // function addingAdvice() {
   //   setAdvice(data.slip.advice);
@@ -59,17 +67,21 @@ function App() {
 
   // addingAdvice();
 
+  // const handleClick = () => {
+  //   setAdvice(data.slip.advice);
+  // }
+
   return (
     <div>
       <div>
 
-        <p>Advice {adviceId}</p>
+        <p>Advice #{adviceId}</p>
 
         <p>"{advice}"</p>
 
         <img src="./images/pattern-divider-mobile.svg" alt="pattern divider" />
 
-        <button className='bg-[url("./images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] '></button>
+        <button type='button' className='bg-[url("./images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer' onClick={handleClick}></button>
 
         {/* <img src="./images/icon-dice.svg" alt="icon dice" /> */}
 
