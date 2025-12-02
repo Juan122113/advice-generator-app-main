@@ -8,13 +8,23 @@ function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [trigger, setTrigger] = useState(false);
+
+  // let trigger = false;
 
   const handleClick = useCallback(() => {
     console.log(advice);
     console.log(data);
     // setAdvice(advice);
-    setAdvice(data.slip.advice);
-  }, []);
+    // setAdvice(data.slip.advice);
+    // setAdviceId(data.slip.id);
+    // setAdvice(dataJson.slip.advice);
+    // console.log(advice);
+    setTrigger(true);
+    console.log(trigger);
+  }, [data]);
+
+  console.log(trigger);
 
   useEffect(() => {
     // fetch("https://api.adviceslip.com/advice")
@@ -39,19 +49,22 @@ function App() {
         // console.log(res.json());
 
         const dataJson = await res.json();
-        console.log(data);
+        console.log(dataJson);
         // console.log(data.advice);
         // console.log(data[advice]);
         setData(dataJson);
-        // setAdvice(data.slip.advice);
-        setAdviceId(data.slip.id);
         console.log(data);
-        console.log(data.slip.id);
+        setAdvice(data.slip.advice);
+        // setAdvice(dataJson.slip.advice);
+        console.log(data);
+        // setAdviceId(data.slip.id);
+        // console.log(data);
+        // console.log(data.slip.id);
         // console.log(data["id"]);
-        console.log(data.slip.advice);
+        // console.log(data.slip.advice);
         // console.log(data[advice]);
       } catch (err) {
-        setError(err);
+        // setError(err);
       } finally {
         setLoading(false);
       }
@@ -61,8 +74,16 @@ function App() {
     // setAdvice(data.slip.advice);
     // }
 
+  //   const handleClick = useCallback(() => {
+  //   console.log(advice);
+    console.log(data);
+  //   // setAdvice(advice);
+  //   // setAdvice(data.slip.advice);
+  //   console.log(advice);
+  // }, [])
+
     fetchData();
-  }, [handleClick]);
+  }, []);
 
   // function addingAdvice() {
   //   setAdvice(data.slip.advice);
@@ -72,6 +93,26 @@ function App() {
 
   // const handleClick = () => {
   //   setAdvice(data.slip.advice);
+  // }
+
+  //   const handleClick = useCallback(() => {
+  //   console.log(advice);
+  //   console.log(data);
+  //   // setAdvice(advice);
+  //   setAdvice(data.slip.advice);
+  //   console.log(advice);
+  // }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  // if (trigger) {
+  //   setTrigger(false);
   // }
 
   return (
