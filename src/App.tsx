@@ -10,7 +10,10 @@ function App() {
   const [error, setError] = useState(null);
 
   const handleClick = useCallback(() => {
-    setAdvice(data.advice);
+    console.log(advice);
+    console.log(data);
+    // setAdvice(advice);
+    setAdvice(data.slip.advice);
   }, []);
 
   useEffect(() => {
@@ -35,12 +38,12 @@ function App() {
         // console.log(res);
         // console.log(res.json());
 
-        const data = await res.json();
+        const dataJson = await res.json();
         console.log(data);
         // console.log(data.advice);
         // console.log(data[advice]);
-        setData(data);
-        setAdvice(data.slip.advice);
+        setData(dataJson);
+        // setAdvice(data.slip.advice);
         setAdviceId(data.slip.id);
         console.log(data);
         console.log(data.slip.id);
