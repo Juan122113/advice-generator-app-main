@@ -22,9 +22,42 @@ function App() {
     // console.log(advice);
     setTrigger(true);
     console.log(trigger);
-  }, [data]);
+  }, [trigger]);
 
   console.log(trigger);
+
+  const fetchData = useCallback(async () => {
+        const res = await fetch("https://api.adviceslip.com/advice");
+
+        // if (!res.ok) {
+        //   throw new Error("Network response was not ok");
+        // }
+
+        // console.log(res);
+        // console.log(res.json());
+
+        const dataJson = await res.json();
+        console.log(dataJson);
+        // console.log(data.advice);
+        // console.log(data[advice]);
+        // setData(dataJson.slip.advice);
+        // setData(dataJson);
+        console.log(data);
+        setAdvice(dataJson.slip.advice);
+        // setAdvice(dataJson.slip.advice);
+        // console.log(data);
+        setAdviceId(dataJson.slip.id);
+        // console.log(data);
+        // console.log(data.slip.id);
+        // console.log(data["id"]);
+        // console.log(data.slip.advice);
+        // console.log(data[advice]);
+      // } catch (err) {
+      //   // setError(err);
+      // } finally {
+      //   setLoading(false);
+      // }
+    }, [trigger]);
 
   useEffect(() => {
     // fetch("https://api.adviceslip.com/advice")
@@ -37,38 +70,38 @@ function App() {
     //     setError(err);
     //     setLoading(false);
     //   });
-    const fetchData = async () => {
-      try {
-        const res = await fetch("https://api.adviceslip.com/advice");
+    // const fetchData = async () => {
+    //   try {
+    //     const res = await fetch("https://api.adviceslip.com/advice");
 
-        if (!res.ok) {
-          throw new Error("Network response was not ok");
-        }
+    //     if (!res.ok) {
+    //       throw new Error("Network response was not ok");
+    //     }
 
-        // console.log(res);
-        // console.log(res.json());
+    //     // console.log(res);
+    //     // console.log(res.json());
 
-        const dataJson = await res.json();
-        console.log(dataJson);
-        // console.log(data.advice);
-        // console.log(data[advice]);
-        setData(dataJson);
-        console.log(data);
-        setAdvice(data.slip.advice);
-        // setAdvice(dataJson.slip.advice);
-        console.log(data);
-        // setAdviceId(data.slip.id);
-        // console.log(data);
-        // console.log(data.slip.id);
-        // console.log(data["id"]);
-        // console.log(data.slip.advice);
-        // console.log(data[advice]);
-      } catch (err) {
-        // setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
+    //     const dataJson = await res.json();
+    //     console.log(dataJson);
+    //     // console.log(data.advice);
+    //     // console.log(data[advice]);
+    //     setData(dataJson);
+    //     console.log(data);
+    //     setAdvice(data.slip.advice);
+    //     // setAdvice(dataJson.slip.advice);
+    //     console.log(data);
+    //     // setAdviceId(data.slip.id);
+    //     // console.log(data);
+    //     // console.log(data.slip.id);
+    //     // console.log(data["id"]);
+    //     // console.log(data.slip.advice);
+    //     // console.log(data[advice]);
+    //   } catch (err) {
+    //     // setError(err);
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
 
     // const handleClick = () => {
     // setAdvice(data.slip.advice);
@@ -83,7 +116,7 @@ function App() {
   // }, [])
 
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   // function addingAdvice() {
   //   setAdvice(data.slip.advice);
@@ -103,17 +136,21 @@ function App() {
   //   console.log(advice);
   // }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
-
-  // if (trigger) {
-  //   setTrigger(false);
+  // if (loading) {
+  //   return <p>Loading...</p>;
   // }
+
+  // if (error) {
+  //   return <p>{error}</p>;
+  // }
+
+  if (trigger) {
+    setTrigger(false);
+  }
+
+  // const handleClick = useCallback(() => {
+  //   console.log(data);
+  // }, [data]);
 
   return (
     <div>
