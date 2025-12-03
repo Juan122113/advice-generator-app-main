@@ -7,7 +7,8 @@ function App() {
   const [advice, setAdvice] = useState("");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [trigger, setTrigger] = useState(false);
 
   const thinking = "Thinking...";
@@ -26,7 +27,7 @@ function App() {
   //   console.log(trigger);
   // }, [trigger]);
 
-  console.log(trigger);
+  // console.log(trigger);
 
   // const fetchData = useCallback(async () => {
   //       const res = await fetch("https://api.adviceslip.com/advice");
@@ -78,9 +79,17 @@ function App() {
 
         setAdvice(dataJson.slip.advice);
         setAdviceId(dataJson.slip.id);
-        setTrigger(true);
+        // setTrigger(true);
       } catch (err) {
-        setError(err);
+        // setError(err);
+        // console.log(err);
+        
+          if (err instanceof Error) {
+    setError(err.message);
+  } else {
+    setError("Unknown error");
+    }
+
       } finally {
         setLoading(false);
       }
@@ -105,7 +114,7 @@ function App() {
         // console.log(data);
         // setAdviceId(dataJson.slip.id);
         // setTrigger(true);
-        console.log(trigger);
+        // console.log(trigger);
         // console.log(data);
         // console.log(data.slip.id);
         // console.log(data["id"]);
@@ -215,7 +224,7 @@ function App() {
     // setTrigger(false);
     console.log(trigger);
     fetchData();
-  }, [trigger]);
+  }, []);
 
   // setTrigger(false);
 
@@ -245,9 +254,9 @@ function App() {
   //   return <p>{error}</p>;
   // }
 
-  if (trigger) {
-    setTrigger(false);
-  }
+  // if (trigger) {
+  //   setTrigger(false);
+  // }
 
   // const handleClick = useCallback(() => {
   //   console.log(data);
@@ -257,13 +266,26 @@ function App() {
     <div>
       <div>
 
-        <p>Advice #{adviceId}</p>
+        {loading ? (
+          <>
+            <p>{thinking}</p>
+            <p>"..."</p>
+          </>
+        ) : error ? (
+          <p>{error}</p>
+        ) : (
+          <>
+            <p>Advice #{adviceId}</p>
+            <p>"{advice}"</p>
+          </>
+        )}
+        {/* <p>Advice #{adviceId}</p>
 
-        <p>"{loading ? thinking : advice}"</p>
+        <p>"{loading ? thinking : advice}"</p> */}
 
         <img src="./images/pattern-divider-mobile.svg" alt="pattern divider" />
 
-        <button type='button' className='bg-[url("./images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer' onClick={fetchData}></button>
+        <button type='button' className='bg-[url("./images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer' onClick={fetchData} disabled={loading}></button>
 
         {/* <img src="./images/icon-dice.svg" alt="icon dice" /> */}
 
