@@ -10,24 +10,81 @@ function App() {
   const [error, setError] = useState(null);
   const [trigger, setTrigger] = useState(false);
 
+  const thinking = "Thinking...";
+
   // let trigger = false;
 
-  const handleClick = useCallback(() => {
-    console.log(advice);
-    console.log(data);
-    // setAdvice(advice);
-    // setAdvice(data.slip.advice);
-    // setAdviceId(data.slip.id);
-    // setAdvice(dataJson.slip.advice);
-    // console.log(advice);
-    setTrigger(true);
-    console.log(trigger);
-  }, [trigger]);
+  // const handleClick = useCallback(() => {
+  //   console.log(advice);
+  //   console.log(data);
+  //   // setAdvice(advice);
+  //   // setAdvice(data.slip.advice);
+  //   // setAdviceId(data.slip.id);
+  //   // setAdvice(dataJson.slip.advice);
+  //   // console.log(advice);
+  //   setTrigger(true);
+  //   console.log(trigger);
+  // }, [trigger]);
 
   console.log(trigger);
 
-  const fetchData = useCallback(async () => {
-        const res = await fetch("https://api.adviceslip.com/advice");
+  // const fetchData = useCallback(async () => {
+  //       const res = await fetch("https://api.adviceslip.com/advice");
+
+  //       // if (!res.ok) {
+  //       //   throw new Error("Network response was not ok");
+  //       // }
+
+  //       // console.log(res);
+  //       // console.log(res.json());
+
+  //       const dataJson = await res.json();
+  //       console.log(dataJson);
+  //       // console.log(data.advice);
+  //       // console.log(data[advice]);
+  //       // setData(dataJson.slip.advice);
+  //       // setData(dataJson);
+  //       console.log(data);
+  //       setAdvice(dataJson.slip.advice);
+  //       // setAdvice(dataJson.slip.advice);
+  //       // console.log(data);
+  //       setAdviceId(dataJson.slip.id);
+  //       // console.log(data);
+  //       // console.log(data.slip.id);
+  //       // console.log(data["id"]);
+  //       // console.log(data.slip.advice);
+  //       // console.log(data[advice]);
+  //     // } catch (err) {
+  //     //   // setError(err);
+  //     // } finally {
+  //     //   setLoading(false);
+  //     // }
+  //   }, []);
+  
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const res = await fetch(`https://api.adviceslip.com/advice?timestamp=${Date.now()}`);
+
+        console.log(loading);
+
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const dataJson = await res.json()
+
+        console.log(dataJson);
+
+        setAdvice(dataJson.slip.advice);
+        setAdviceId(dataJson.slip.id);
+        setTrigger(true);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+
 
         // if (!res.ok) {
         //   throw new Error("Network response was not ok");
@@ -36,17 +93,19 @@ function App() {
         // console.log(res);
         // console.log(res.json());
 
-        const dataJson = await res.json();
-        console.log(dataJson);
+        
+        // console.log(dataJson);
         // console.log(data.advice);
         // console.log(data[advice]);
         // setData(dataJson.slip.advice);
         // setData(dataJson);
-        console.log(data);
-        setAdvice(dataJson.slip.advice);
+        // console.log(data);
+        // setAdvice(dataJson.slip.advice);
         // setAdvice(dataJson.slip.advice);
         // console.log(data);
-        setAdviceId(dataJson.slip.id);
+        // setAdviceId(dataJson.slip.id);
+        // setTrigger(true);
+        console.log(trigger);
         // console.log(data);
         // console.log(data.slip.id);
         // console.log(data["id"]);
@@ -57,7 +116,44 @@ function App() {
       // } finally {
       //   setLoading(false);
       // }
-    }, [trigger]);
+    };
+
+    // const fetchData = () => {
+    //   fetch("https://api.adviceslip.com/advice")
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       setAdvice(data.slip.advice);
+    //     })
+
+    //     // if (!res.ok) {
+    //     //   throw new Error("Network response was not ok");
+    //     // }
+
+    //     // console.log(res);
+    //     // console.log(res.json());
+
+    //     // const dataJson = await res.json();
+    //     // console.log(dataJson);
+    //     // // console.log(data.advice);
+    //     // // console.log(data[advice]);
+    //     // // setData(dataJson.slip.advice);
+    //     // // setData(dataJson);
+    //     // // console.log(data);
+    //     // setAdvice(dataJson.slip.advice);
+    //     // // setAdvice(dataJson.slip.advice);
+    //     // // console.log(data);
+    //     // setAdviceId(dataJson.slip.id);
+    //     // console.log(data);
+    //     // console.log(data.slip.id);
+    //     // console.log(data["id"]);
+    //     // console.log(data.slip.advice);
+    //     // console.log(data[advice]);
+    //   // } catch (err) {
+    //   //   // setError(err);
+    //   // } finally {
+    //   //   setLoading(false);
+    //   // }
+    // };
 
   useEffect(() => {
     // fetch("https://api.adviceslip.com/advice")
@@ -109,14 +205,19 @@ function App() {
 
   //   const handleClick = useCallback(() => {
   //   console.log(advice);
-    console.log(data);
+    // console.log(data);
   //   // setAdvice(advice);
   //   // setAdvice(data.slip.advice);
   //   console.log(advice);
   // }, [])
 
+    // setTrigger(false);
+    // setTrigger(false);
+    console.log(trigger);
     fetchData();
-  }, [fetchData]);
+  }, [trigger]);
+
+  // setTrigger(false);
 
   // function addingAdvice() {
   //   setAdvice(data.slip.advice);
@@ -158,11 +259,11 @@ function App() {
 
         <p>Advice #{adviceId}</p>
 
-        <p>"{advice}"</p>
+        <p>"{loading ? thinking : advice}"</p>
 
         <img src="./images/pattern-divider-mobile.svg" alt="pattern divider" />
 
-        <button type='button' className='bg-[url("./images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer' onClick={handleClick}></button>
+        <button type='button' className='bg-[url("./images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer' onClick={fetchData}></button>
 
         {/* <img src="./images/icon-dice.svg" alt="icon dice" /> */}
 
