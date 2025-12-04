@@ -37,20 +37,20 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <div>
+    <main className="h-[100vh]">
+      <div className='card m-auto h-[7rem] bg-blue-900'>
 
         {loading ? (
-          <>
+          <div className="text-white">
             <p>Thinking...</p>
             <p>"..."</p>
-          </>
+          </div>
         ) : error ? (
           <p>{error}</p>
         ) : (
           <>
-            <p>Advice #{adviceId}</p>
-            <p>"{advice}"</p>
+            <p className='text-green-300'>Advice #{adviceId}</p>
+            <p className='text-white'>"{advice}"</p>
           </>
         )}
         
@@ -58,12 +58,14 @@ function App() {
 
         <button type='button' className='bg-[url("./images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer' onClick={fetchData} disabled={loading}></button>
 
-        <div className="attribution text-[11px] text-center">
-          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-          Coded by <a href="#">Your Name  Here</a>.
-        </div>
       </div>
-    </div>
+
+      <div className="attribution text-[11px] text-center">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Ammiel Juan Latorre</a>.
+      </div>
+
+    </main>
     
   )
 }

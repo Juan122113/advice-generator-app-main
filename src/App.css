@@ -1,1 +1,21 @@
-.attribution a { color: hsl(228, 45%, 44%); }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+}
+
+main {
+    background-color: hsl(218, 23%, 16%);
+}
+
+.attribution a {    
+    color: hsl(228, 45%, 44%); 
+}
