@@ -1,8 +1,8 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 
 html {
     height: 100%;
@@ -12,10 +12,19 @@ body {
     min-height: 100vh;
 }
 
-main {
+/* main {
     background-color: hsl(218, 23%, 16%);
-}
+} */
+
+/* .card {
+    background-color: hsl(217, 19%, 24%);
+    margin-top: 5rem;
+} */
+
+/* .attribution {
+    color: hsl(193, 38%, 86%);
+} */
 
 .attribution a {    
-    color: hsl(228, 45%, 44%); 
+    color: #00FFA0; 
 }

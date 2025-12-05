@@ -37,20 +37,20 @@ function App() {
   }, []);
 
   return (
-    <main className="h-[100vh]">
-      <div className='card m-auto h-[7rem] bg-blue-900'>
+    <main className="min-h-screen bg-[#1f2632] flex flex-col items-center relative">
+      <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem]'>
 
         {loading ? (
-          <div className="text-white">
-            <p>Thinking...</p>
+          <div className="loading text-[#cee3e9]">
+            <p className='text-[#00FFA0]'>Thinking...</p>
             <p>"..."</p>
           </div>
         ) : error ? (
           <p>{error}</p>
         ) : (
           <>
-            <p className='text-green-300'>Advice #{adviceId}</p>
-            <p className='text-white'>"{advice}"</p>
+            <p className='text-[#00FFA0]'>Advice #{adviceId}</p>
+            <p className='text-[#cee3e9]'>"{advice}"</p>
           </>
         )}
         
@@ -60,7 +60,7 @@ function App() {
 
       </div>
 
-      <div className="attribution text-[11px] text-center">
+      <div className="attribution text-[11px] text-center text-[#cee3e9] absolute bottom-0">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
         Coded by <a href="#">Ammiel Juan Latorre</a>.
       </div>
