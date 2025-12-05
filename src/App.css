@@ -4,6 +4,16 @@
     box-sizing: border-box;
 } */
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap') format('woff2');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+
 html {
     height: 100%;
 }

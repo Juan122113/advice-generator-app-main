@@ -60,7 +60,7 @@ function App() {
 
       </div>
 
-      <div className="attribution text-[11px] text-center text-[#cee3e9] absolute bottom-0">
+      <div className="attribution text-[11px] text-center text-[#cee3e9] relative bottom-0">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
         Coded by <a href="#">Ammiel Juan Latorre</a>.
       </div>
