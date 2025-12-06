@@ -38,7 +38,7 @@ function App() {
 
   return (
     <main className="min-h-screen bg-[#1f2632] flex flex-col items-center relative">
-      <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem]'>
+      <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded'>
 
         {loading ? (
           <div className="loading text-[#cee3e9]">
@@ -49,14 +49,16 @@ function App() {
           <p>{error}</p>
         ) : (
           <>
-            <p className='text-[#00FFA0]'>Advice #{adviceId}</p>
-            <p className='text-[#cee3e9]'>"{advice}"</p>
+            <p className='text-[#00FFA0] relative top-[.8rem] text-[.64rem] tracking-[.23rem] text-center'>ADVICE #{adviceId}</p>
+            <p className='text-[#cee3e9] text-[1.6rem] px-[2rem] text-center pb-[1rem]'>"{advice}"</p>
           </>
         )}
         
-        <img src="./images/pattern-divider-mobile.svg" alt="pattern divider" />
+        <img src="./images/pattern-divider-mobile.svg" alt="pattern divider" className='relative bottom-[1.5rem] ' />
 
-        <button type='button' className='bg-[url("./images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer' onClick={fetchData} disabled={loading}></button>
+        <div className='rounded-[50%] bg-[#00FFA0] relative top-[1.9rem] p-[1.25rem]'>
+          <button type='button' className='bg-[url("./images/icon-dice.svg")] w-[1.6rem] h-[1.6rem] cursor-pointer bg-[#00FFA0] bg-contain bg-no-repeat' onClick={fetchData} disabled={loading}></button>
+        </div>
 
       </div>
 
