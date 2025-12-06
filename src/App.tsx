@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import './App.css'
+// import './App.css'
 
 function App() {
 
@@ -60,10 +60,10 @@ function App() {
 
       </div>
 
-      <div className="attribution text-[11px] text-center text-[#cee3e9] relative bottom-0">
+      <footer className="attribution text-[11px] text-center text-[#cee3e9] relative bottom-0 mt-auto">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
         Coded by <a href="#">Ammiel Juan Latorre</a>.
-      </div>
+      </footer>
 
     </main>
     
