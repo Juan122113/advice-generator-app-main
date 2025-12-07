@@ -38,25 +38,25 @@ function App() {
 
   return (
     <main className="min-h-screen bg-[#1f2632] flex flex-col items-center relative">
-      <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded'>
+      <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded relative'>
 
         {loading ? (
-          <div className="loading text-[#cee3e9]">
-            <p className='text-[#00FFA0]'>Thinking...</p>
-            <p>"..."</p>
-          </div>
+          // <div className="text-[#cee3e9] text-center ">
+            <p className='text-[#cee3e9] text-[1.55rem] relative bottom[2rem]'>Thinking...</p>
+            
+          
         ) : error ? (
           <p>{error}</p>
         ) : (
           <>
-            <p className='text-[#00FFA0] relative top-[1.58rem] text-[.64rem] tracking-[.23rem] text-center'>ADVICE #{adviceId}</p>
-            <p className='text-[#cee3e9] text-[1.6rem] px-[2rem] text-center relative top-[.8rem]'>"{advice}"</p>
+            <p className='text-[#00FFA0] text-[.64rem] tracking-[.23rem] text-center font-[500]'>ADVICE #{adviceId}</p>
+            <p className='text-[#cee3e9] text-[1.55rem]  text-center relative bottom-[10px] max-w-[90%] font-[800]'>"{advice}"</p>
           </>
         )}
         
-        <img src="./images/pattern-divider-mobile.svg" alt="pattern divider" className='relative top-[.3rem] ' />
+        <img src="./images/pattern-divider-mobile.svg" alt="pattern divider" className='relative bottom-[15px] ' />
 
-        <div className='rounded-[50%] bg-[#00FFA0] relative top-[1.85rem] p-[1.25rem] flex'>
+        <div className='rounded-[50%] bg-[#00FFA0] absolute p-[1.25rem] flex top-[283px] '>
           <button type='button' className='bg-[url("./images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer bg-[#00FFA0] bg-contain bg-no-repeat border-none m-auto' onClick={fetchData} disabled={loading}></button>
         </div>
 

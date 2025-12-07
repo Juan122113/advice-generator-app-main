@@ -1,10 +1,16 @@
 @font-face {
   font-family: "Manrope";
   src: url("/Fonts/Manrope/Manrope-VariableFont_wght.ttf") format("truetype");
-  /* font-weight: 400;
-  font-style: normal; */
+  font-weight: 800;
+  font-style: normal;
 }
 
+@font-face {
+  font-family: "Manrope";
+  src: url("/Fonts/Manrope/Manrope-VariableFont_wght.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
 /* @font-face {
   font-family: "Manrope";
   src: url("/Fonts/Manrope/Manrope-Bold.ttf") format("truetype");
@@ -22,7 +28,7 @@ html {
 
 body {
     font-family: "Manrope";
-    font-weight: 800;
+    /* font-weight: 800; */
     min-height: 100vh;
     margin: 0
 }
@@ -30,3 +36,5 @@ body {
 .attribution a {    
     color: #00FFA0; 
 }
+
+@media (width < )
