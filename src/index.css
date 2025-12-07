@@ -30,11 +30,17 @@ body {
     font-family: "Manrope";
     /* font-weight: 800; */
     min-height: 100vh;
-    margin: 0
+    margin: 0;
+    /* padding-bottom: 1rem; */
 }
 
 .attribution a {    
     color: #00FFA0; 
 }
 
-@media (width < )
+/* @media (max-width: 18.75rem) {
+
+  .card {
+    width: ;
+  }
+} */

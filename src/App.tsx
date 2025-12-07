@@ -38,11 +38,11 @@ function App() {
 
   return (
     <main className="min-h-screen bg-[#1f2632] flex flex-col items-center relative">
-      <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded relative'>
+      <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded relative max-w-[95%] lg:mt-[150rem] '>
 
         {loading ? (
           // <div className="text-[#cee3e9] text-center ">
-            <p className='text-[#cee3e9] text-[1.55rem] relative bottom[2rem]'>Thinking...</p>
+            <p className='text-[#cee3e9] text-[1.55rem] font-[800] '>Thinking...</p>
             
           
         ) : error ? (
@@ -56,13 +56,13 @@ function App() {
         
         <img src="./images/pattern-divider-mobile.svg" alt="pattern divider" className='relative bottom-[15px] ' />
 
-        <div className='rounded-[50%] bg-[#00FFA0] absolute p-[1.25rem] flex top-[283px] '>
-          <button type='button' className='bg-[url("./images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer bg-[#00FFA0] bg-contain bg-no-repeat border-none m-auto' onClick={fetchData} disabled={loading}></button>
+        <div onClick={fetchData} className='rounded-[50%] bg-[#00FFA0] absolute p-[1.25rem] flex top-[283px] '>
+          <button type='button' className='bg-[url("./images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer bg-[#00FFA0] bg-contain bg-no-repeat border-none m-auto' disabled={loading}></button>
         </div>
 
       </div>
 
-      <footer className="attribution text-[11px] text-center text-[#cee3e9] relative bottom-0 mt-auto">
+      <footer className="attribution text-[0.688rem] text-center text-[#cee3e9] mt-auto pt-[3rem] ">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
         Coded by <a href="#">Ammiel Juan Latorre</a>.
       </footer>
