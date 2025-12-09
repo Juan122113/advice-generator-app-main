@@ -42,10 +42,53 @@ body {
   @apply mt-[15rem];
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .mt-lg-15rem {
     margin-top: 15rem;
   }
+
+  main {
+    /* justify-content: center; */
+  }
+
+  .card{
+    margin-top: 14rem;
+    /* justify-content: center; */
+    /* padding: 3rem 6rem 2rem; */
+    height: 20.7rem;
+    width: 34rem;
+  }
+
+  .advice-id {
+    margin-top: -3.83rem;
+    font-size: .8rem;
+    letter-spacing: .25rem;
+    font-weight: 800;
+  }
+
+  .advice {
+    font-size: 1.7rem;
+  }
+
+  .pattern-divider {
+    bottom: 0;
+    top: 31px;
+  }
+
+  /* .pattern-divider:hover {
+    cursor: pointer;
+  } */
+
+  .button-container{
+    top: 299px;
+  }
+
+  .button-container:hover {
+    box-shadow: 0 0 1.8rem .001rem #37f1ad;
+    background-color: #25ffaf;
+    /* cursor: pointer; */
+  }
+
 }
 
 /* @media (max-width: 18.75rem) {
