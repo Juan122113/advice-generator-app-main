@@ -5,11 +5,17 @@ module.exports = {
     extend: {
       fontFamily: {
         manrope: ["Manrope", "sans-serif"]
+      },
+      margin: {
+        '15rem': '15rem',
       }
     },
   },
   safelist: [
-    'lg:mt-[15rem]',
+    {
+    pattern: /mt-\[.*\]/,
+    variants: ['lg'],
+    },
   ],
   plugins: [],
 }

@@ -38,6 +38,16 @@ body {
     color: #00FFA0; 
 }
 
+.mt-lg-15rem {
+  @apply mt-[15rem];
+}
+
+@media (min-width: 1024px) {
+  .mt-lg-15rem {
+    margin-top: 15rem;
+  }
+}
+
 /* @media (max-width: 18.75rem) {
 
   .card {
