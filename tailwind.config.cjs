@@ -8,6 +8,9 @@ module.exports = {
       }
     },
   },
+  safelist: [
+    'lg:mt-[15rem]',
+  ],
   plugins: [],
 }
 

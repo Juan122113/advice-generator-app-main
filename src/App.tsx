@@ -38,7 +38,7 @@ function App() {
 
   return (
     <main className="min-h-screen bg-[#1f2632] flex flex-col items-center relative">
-      <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded relative max-w-[95%] lg:mt-[150rem] '>
+      <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded relative max-w-[95%] lg:mt-[15rem] '>
 
         {loading ? (
           // <div className="text-[#cee3e9] text-center ">
