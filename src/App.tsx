@@ -64,7 +64,7 @@ function App() {
 
       <footer className="attribution text-[0.688rem] text-center text-[#cee3e9] mt-auto pt-[3rem] ">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-        Coded by <a href="#">Ammiel Juan Latorre</a>.
+        Coded by <a href="https://www.frontendmentor.io/profile/Juan122113" target="_blank">Ammiel Juan Latorre</a>.
       </footer>
 
     </main>
