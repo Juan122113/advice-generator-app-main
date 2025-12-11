@@ -55,7 +55,7 @@ function App() {
         <img src="/images/pattern-divider-mobile.svg" alt="pattern divider" className='pattern-divider relative bottom-[15px] ' />
 
         <div onClick={fetchData} className='button-container rounded-[50%] bg-[#00FFA0] absolute p-[1.25rem] flex top-[283px] cursor-pointer '>
-          <button type='button' className='bg-[url("/images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer bg-[#00FFA0] bg-contain bg-no-repeat border-none m-auto' disabled={loading}></button>
+          <button type='button' className='bg-[url("/images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer bg-[#00FFA0] bg-contain bg-no-repeat border-none m-auto' disabled={loading} aria-label='Get new advice'></button>
         </div>
 
       </div>
