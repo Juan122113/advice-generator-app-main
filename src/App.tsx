@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-// import './App.css'
 
 function App() {
 
@@ -41,7 +40,6 @@ function App() {
       <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded relative max-w-[95%] lg:mt-[200px] md:mt-15rem md:bg-red-500 lg:bg-red-500'>
 
         {loading ? (
-          // <div className="text-[#cee3e9] text-center ">
             <p className='text-[#cee3e9] text-[1.55rem] font-[800] text.center'>Thinking...</p>
             
           

@@ -11,12 +11,6 @@
   font-weight: 500;
   font-style: normal;
 }
-/* @font-face {
-  font-family: "Manrope";
-  src: url("/Fonts/Manrope/Manrope-Bold.ttf") format("truetype");
-  font-weight: 800;
-  font-style: normal;
-} */
 
 @tailwind base;
 @tailwind components;
@@ -28,10 +22,8 @@ html {
 
 body {
     font-family: "Manrope";
-    /* font-weight: 800; */
     min-height: 100vh;
     margin: 0;
-    /* padding-bottom: 1rem; */
 }
 
 .attribution a {    
@@ -43,18 +35,9 @@ body {
 }
 
 @media (min-width: 768px) {
-  .mt-lg-15rem {
-    margin-top: 15rem;
-  }
-
-  main {
-    /* justify-content: center; */
-  }
 
   .card{
     margin-top: 14rem;
-    /* justify-content: center; */
-    /* padding: 3rem 6rem 2rem; */
     height: 20.7rem;
     width: 34rem;
   }
@@ -75,10 +58,6 @@ body {
     top: 31px;
   }
 
-  /* .pattern-divider:hover {
-    cursor: pointer;
-  } */
-
   .button-container{
     top: 299px;
   }
@@ -86,14 +65,6 @@ body {
   .button-container:hover {
     box-shadow: 0 0 1.8rem .001rem #37f1ad;
     background-color: #25ffaf;
-    /* cursor: pointer; */
   }
 
 }
-
-/* @media (max-width: 18.75rem) {
-
-  .card {
-    width: ;
-  }
-} */
