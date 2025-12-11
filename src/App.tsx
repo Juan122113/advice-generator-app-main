@@ -36,23 +36,23 @@ function App() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#1f2632] flex flex-col items-center relative lg:justify-center">
-      <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded relative max-w-[95%] lg:mt-[200px] md:mt-15rem md:bg-red-500 lg:bg-red-500'>
+    <main className="min-h-screen bg-[#1f2632] flex flex-col items-center relative">
+      <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded-[.5rem] relative max-w-[95%]'>
 
         {loading ? (
-            <p className='text-[#cee3e9] text-[1.55rem] font-[800] text.center'>Thinking...</p>
+            <p className='text-[#cee3e9] text-[1.55rem] font-[800] text-center relative bottom-[.7rem]'>Thinking...</p>
             
           
         ) : error ? (
           <p>{error}</p>
         ) : (
           <>
-            <p className='advice-id text-[#00FFA0] text-[.64rem] tracking-[.23rem] text-center font-[500] lg:mt-[2rem]'>ADVICE #{adviceId}</p>
-            <p className='advice text-[#cee3e9] text-[1.55rem]  text-center relative bottom-[10px] max-w-[90%] font-[800]'>"{advice}"</p>
+            <p className='advice-id text-[#00FFA0] text-[.64rem] tracking-[.23rem] text-center font-[500] '>ADVICE #{adviceId}</p>
+            <p className='advice text-[#cee3e9] text-[1.55rem]  text-center relative bottom-[15px] max-w-[90%] font-[800]'>"{advice}"</p>
           </>
         )}
         
-        <img src="/images/pattern-divider-mobile.svg" alt="pattern divider" className='pattern-divider relative bottom-[15px] ' />
+        <img src="/images/pattern-divider-mobile.svg" alt="pattern divider" className='pattern-divider relative bottom-[30px] ' />
 
         <div onClick={fetchData} className='button-container rounded-[50%] bg-[#00FFA0] absolute p-[1.25rem] flex top-[283px] cursor-pointer '>
           <button type='button' className='bg-[url("/images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer bg-[#00FFA0] bg-contain bg-no-repeat border-none m-auto' disabled={loading} aria-label='Get new advice'></button>
