@@ -36,6 +36,7 @@ body {
     margin-top: 14rem;
     height: 20.7rem;
     width: 34rem;
+    border-radius: .9rem;
   }
 
   .advice-id {
