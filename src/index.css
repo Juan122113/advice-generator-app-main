@@ -31,6 +31,25 @@ body {
     /* background-color: #25ffaf; */
 }
 
+button {
+  /* outline: 1rem solid green;
+  border-radius: 50%; */
+  /* z-index: 100; */
+}
+
+button::before {
+  content: url("/images/icon-dice.svg");
+  width: 0rem;
+  height: 0rem;
+  border: 1rem solid #00FFA0;
+  /* z-index: 0; */
+  border-radius: 50%;
+  position: relative;
+  bottom: 1rem;
+  right: .8rem;
+  /* background-image: url("/images/icon-dice.svg"); */
+}
+
 .attribution a {    
     color: #00FFA0; 
 }

@@ -34,8 +34,8 @@ function App() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#1f2632] flex flex-col items-center relative">
-      <div className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded-[.5rem] relative max-w-[95%]'>
+    <div className="container min-h-screen bg-[#1f2632] flex flex-col items-center relative">
+      <main className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded-[.5rem] relative max-w-[95%]'>
 
         {loading ? (
             <p className='text-[#cee3e9] text-[1.55rem] font-[800] text-center relative bottom-[.7rem]'>Thinking...</p>
@@ -53,18 +53,18 @@ function App() {
         
         <img src="/images/pattern-divider-mobile.svg" alt="pattern divider" className='pattern-divider relative bottom-[30px] ' />
 
-        <div onClick={!loading ? fetchData : undefined} className={`button-container rounded-[50%] bg-[#00FFA0] absolute p-[1.25rem] flex top-[283px] ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:shadow--[0_0_30px_rgba(0,255,160,0.6)] hover:bg-[#25ffaf] cursor-pointer'}`}>
-          <button type='button' className={`bg-[url("/images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer bg-contain bg-no-repeat border-none m-auto bg-[#00FFA0] ${loading ? 'cursor-not-allowed' : 'cursor-pointer '}`} disabled={loading} aria-label='Get new advice'></button>
-        </div>
+        {/* <div onClick={!loading ? fetchData : undefined} className={`button-container rounded-[50%] bg-[#00FFA0] absolute p-[1.25rem] flex top-[283px] ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-[0_0_1.8rem_0.001rem_#37f1ad] hover:bg-[#25ffaf] cursor-pointer'}`}> */}
+          <button onClick={!loading ? fetchData : undefined} type='button' className={`w-0px h-0px${loading ? 'cursor-not-allowed' : 'cursor-pointer '}`} disabled={loading} aria-label='Get new advice'></button>
+        {/* </div> */}
 
-      </div>
+      </main>
 
       <footer className="attribution text-[0.688rem] text-center text-[#cee3e9] mt-auto pt-[3rem] ">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
         Coded by <a href="https://www.frontendmentor.io/profile/Juan122113" target="_blank">Ammiel Juan Latorre</a>.
       </footer>
 
-    </main>
+    </div>
     
   )
 }
