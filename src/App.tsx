@@ -5,7 +5,7 @@ function App() {
   const [adviceId, setAdviceId] = useState();
   const [advice, setAdvice] = useState("");
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState(false);
   
     const fetchData = async () => {
       try {
@@ -21,10 +21,9 @@ function App() {
         setAdvice(dataJson.slip.advice);
         setAdviceId(dataJson.slip.id);
       } catch (err) {
-          if (err instanceof Error) {
-            setError(err.message);
-          } else {
-            setError("Unknown error");
+          if (err) {
+            setError(true);
+          
           }
       } finally {
           setLoading(false);
@@ -44,7 +43,8 @@ function App() {
             
           
         ) : error ? (
-          <p>{error}</p>
+          <p className='text-[#cee3e9] text-[1.55rem] font-[800] text-center relative bottom-[.7rem] mx-[1rem]'>Sorry, I couldn’t come up with a good piece of advice. Please try again..
+          </p>
         ) : (
           <>
             <p className='advice-id text-[#00FFA0] text-[.64rem] tracking-[.23rem] text-center font-[500] '>ADVICE #{adviceId}</p>
