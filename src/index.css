@@ -35,19 +35,56 @@ button {
   /* outline: 1rem solid green;
   border-radius: 50%; */
   /* z-index: 100; */
+  height: 1.5rem;
+  /* height: auto; */
+  width: 1.5rem;
+  position: absolute;
+  top: 283px;
+  /* top: 80%; */
+  /* bottom: 0; */
+  /* display: flex; */
+  background-image: url("images/icon-dice.svg");
+  /* border: 1rem solid #37f1ad; */
+  border: none;
+  background-color: #00FFA0;
+  padding: 1.8rem;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  background-position: center;
+  transition: transform .08s ease-out;
 }
 
 button::before {
-  content: url("/images/icon-dice.svg");
-  width: 0rem;
-  height: 0rem;
-  border: 1rem solid #00FFA0;
+  /* content: url("/images/icon-dice.svg"); */
+  /* content: ""; */
+  width: 5rem;
+  height: 1.5rem;
+  border: 1.3rem solid #00FFA0;
   /* z-index: 0; */
   border-radius: 50%;
   position: relative;
-  bottom: 1rem;
-  right: .8rem;
+  bottom: 30px;
+  right: 30px;
+  /* margin: 0 auto; */
   /* background-image: url("/images/icon-dice.svg"); */
+  /* color: green; */
+  background-color: #00FFA0;
+}
+
+button:hover {
+  box-shadow: 0 0 1.8rem .001rem #37f1ad;
+  background-color: #25ffaf;
+}
+
+button:active {
+  transform: scale(.92);
+  /* transition: transform .1s ease; */
+  /* translate: 50%; */
+}
+
+button:active {
+  /* box-shadow: none; */
+  /* transform: translateY(2px); */
 }
 
 .attribution a {    
