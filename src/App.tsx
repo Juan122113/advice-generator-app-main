@@ -10,6 +10,7 @@ function App() {
     const fetchData = async () => {
       try {
         setLoading(true);
+        setError(false);
         const res = await fetch(`https://api.adviceslip.com/advice?timestamp=${Date.now()}`);
 
         if (!res.ok) {
@@ -21,11 +22,9 @@ function App() {
         setAdvice(dataJson.slip.advice);
         setAdviceId(dataJson.slip.id);
       } catch (err) {
-          if (err) {
-            setError(true);
-          
-          }
-      } finally {
+          console.error(err);    
+          setError(true);
+        } finally {
           setLoading(false);
       }
     };
@@ -54,8 +53,8 @@ function App() {
         
         <img src="/images/pattern-divider-mobile.svg" alt="pattern divider" className='pattern-divider relative bottom-[30px] ' />
 
-        <div onClick={fetchData} className='button-container rounded-[50%] bg-[#00FFA0] absolute p-[1.25rem] flex top-[283px] cursor-pointer '>
-          <button type='button' className='bg-[url("/images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer bg-[#00FFA0] bg-contain bg-no-repeat border-none m-auto' disabled={loading} aria-label='Get new advice'></button>
+        <div onClick={!loading ? fetchData : undefined} className={`button-container rounded-[50%] bg-[#00FFA0] absolute p-[1.25rem] flex top-[283px] ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:shadow--[0_0_30px_rgba(0,255,160,0.6)] hover:bg-[#25ffaf] cursor-pointer'}`}>
+          <button type='button' className={`bg-[url("/images/icon-dice.svg")] w-[1.5rem] h-[1.5rem] cursor-pointer bg-contain bg-no-repeat border-none m-auto bg-[#00FFA0] ${loading ? 'cursor-not-allowed' : 'cursor-pointer '}`} disabled={loading} aria-label='Get new advice'></button>
         </div>
 
       </div>

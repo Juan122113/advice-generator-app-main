@@ -26,6 +26,11 @@ body {
     margin: 0;
 }
 
+.button-container:hover {
+    /* box-shadow: 0 0 1.8rem .001rem #37f1ad; */
+    /* background-color: #25ffaf; */
+}
+
 .attribution a {    
     color: #00FFA0; 
 }
@@ -59,9 +64,9 @@ body {
     top: 299px;
   }
 
-  .button-container:hover {
+  /* .button-container:hover {
     box-shadow: 0 0 1.8rem .001rem #37f1ad;
     background-color: #25ffaf;
-  }
+  } */
 
 }
