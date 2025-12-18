@@ -51,7 +51,11 @@ button {
   background-repeat: no-repeat;
   border-radius: 50%;
   background-position: center;
-  transition: transform .08s ease-out;
+  transition: 
+    transform .08s ease-out,
+    box-shadow .15s ease
+    background-color .15s ease;
+
 }
 
 button::before {
@@ -85,6 +89,18 @@ button:active {
 button:active {
   /* box-shadow: none; */
   /* transform: translateY(2px); */
+}
+
+button:focus-visible {
+  outline: 2px solid #37f1ad;
+  outline-offset: 4px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  opacity: .6;
 }
 
 .attribution a {    

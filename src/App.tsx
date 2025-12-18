@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 function App() {
 
@@ -6,11 +6,13 @@ function App() {
   const [advice, setAdvice] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const loadingRef = useRef(null);
   
     const fetchData = async () => {
       try {
         setLoading(true);
         setError(false);
+        
         const res = await fetch(`https://api.adviceslip.com/advice?timestamp=${Date.now()}`);
 
         if (!res.ok) {
@@ -18,6 +20,9 @@ function App() {
         }
 
         const dataJson = await res.json()
+
+        // micro-delay: at least 200ms
+        await new Promise(resolve => setTimeout(resolve, 200))
 
         setAdvice(dataJson.slip.advice);
         setAdviceId(dataJson.slip.id);
@@ -38,11 +43,11 @@ function App() {
       <main className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded-[.5rem] relative max-w-[95%]'>
 
         {loading ? (
-            <p className='text-[#cee3e9] text-[1.55rem] font-[800] text-center relative bottom-[.7rem]'>Thinking...</p>
+            <p ref={loadingRef} className='text-[#cee3e9] text-[1.55rem] font-[800] text-center relative bottom-[.7rem]'>Thinking...</p>
             
           
         ) : error ? (
-          <p className='text-[#cee3e9] text-[1.55rem] font-[800] text-center relative bottom-[.7rem] mx-[1rem]'>Sorry, I couldn’t come up with a good piece of advice. Please try again..
+          <p className='text-[#cee3e9] text-[1.55rem] font-[800] text-center relative bottom-[.7rem] mx-[1rem]'>Sorry, I couldn’t come up with a good piece of advice. Please try again...
           </p>
         ) : (
           <>
