@@ -11,6 +11,7 @@ function App() {
     const fetchData = async () => {
       try {
         setLoading(true);
+        handleFadeIn();
         setError(false);
         
         const res = await fetch(`https://api.adviceslip.com/advice?timestamp=${Date.now()}`);
@@ -34,6 +35,18 @@ function App() {
       }
     };
 
+  const handleFadeIn = () => {
+    // if (!loadingRef.current) return;
+    
+      // loadingRef.current.style.opacity = 0;
+    
+  }
+
+  const HandleClick = () => {
+    fetchData();
+    handleFadeIn();
+  }
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -43,7 +56,7 @@ function App() {
       <main className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded-[.5rem] relative max-w-[95%]'>
 
         {loading ? (
-            <p ref={loadingRef} className='text-[#cee3e9] text-[1.55rem] font-[800] text-center relative bottom-[.7rem]'>Thinking...</p>
+            <p ref={loadingRef} className='text-[#cee3e9] text-[1.55rem] font-[800] text-center relative bottom-[.7rem] opacity-100 transition-opacity'>Thinking...</p>
             
           
         ) : error ? (
@@ -59,7 +72,7 @@ function App() {
         <img src="/images/pattern-divider-mobile.svg" alt="pattern divider" className='pattern-divider relative bottom-[30px] ' />
 
         {/* <div onClick={!loading ? fetchData : undefined} className={`button-container rounded-[50%] bg-[#00FFA0] absolute p-[1.25rem] flex top-[283px] ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-[0_0_1.8rem_0.001rem_#37f1ad] hover:bg-[#25ffaf] cursor-pointer'}`}> */}
-          <button onClick={!loading ? fetchData : undefined} type='button' className={`${loading ? 'cursor-not-allowed' : 'cursor-pointer '}`} disabled={loading} aria-label='Get new advice'></button>
+          <button onClick={!loading ? HandleClick : undefined} type='button' className={`${loading ? 'cursor-not-allowed' : 'cursor-pointer '}`} disabled={loading} aria-label='Get new advice'></button>
         {/* </div> */}
 
       </main>
