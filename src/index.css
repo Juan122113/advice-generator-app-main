@@ -26,6 +26,10 @@ body {
     margin: 0;
 }
 
+.loading {
+  /* opacity: 0; */
+}
+
 .button-container:hover {
     /* box-shadow: 0 0 1.8rem .001rem #37f1ad; */
     /* background-color: #25ffaf; */

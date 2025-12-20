@@ -6,6 +6,7 @@ function App() {
   const [advice, setAdvice] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [visible, setVisible] = useState(false);
   const loadingRef = useRef(null);
   
     const fetchData = async () => {
@@ -20,10 +21,10 @@ function App() {
           throw new Error("Network response was not ok");
         }
 
-        const dataJson = await res.json()
+        const dataJson = await res.json();
 
         // micro-delay: at least 200ms
-        await new Promise(resolve => setTimeout(resolve, 200))
+        await new Promise(resolve => setTimeout(resolve, 200));
 
         setAdvice(dataJson.slip.advice);
         setAdviceId(dataJson.slip.id);
@@ -51,12 +52,18 @@ function App() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    // setVisible(false);
+          //  new Promise(resolve => setTimeout(resolve, 50));
+    setVisible(true);
+  }, [advice]);
+
   return (
     <div className="container min-h-screen bg-[#1f2632] flex flex-col items-center relative">
       <main className='card h-[19.7rem] bg-[#323a49] flex flex-col items-center justify-center mt-[7.5rem] w-[21.4rem] rounded-[.5rem] relative max-w-[95%]'>
 
         {loading ? (
-            <p ref={loadingRef} className='text-[#cee3e9] text-[1.55rem] font-[800] text-center relative bottom-[.7rem] opacity-100 transition-opacity'>Thinking...</p>
+            <p ref={loadingRef} className='loading text-[#cee3e9] text-[1.55rem] font-[800] text-center relative bottom-[.7rem] opacity-100 transition-opacity'>Thinking...</p>
             
           
         ) : error ? (
@@ -65,7 +72,7 @@ function App() {
         ) : (
           <>
             <p className='advice-id text-[#00FFA0] text-[.64rem] tracking-[.23rem] text-center font-[500] '>ADVICE #{adviceId}</p>
-            <p className='advice text-[#cee3e9] text-[1.55rem]  text-center relative bottom-[15px] max-w-[90%] font-[800]'>"{advice}"</p>
+            <p className={`advice text-[#cee3e9] text-[1.55rem]  text-center relative bottom-[15px] max-w-[90%] font-[800] ${!visible ? 'opacity-0 transition-opacity duration-200' : 'opacity-100'}`}>"{advice}"</p>
           </>
         )}
         
