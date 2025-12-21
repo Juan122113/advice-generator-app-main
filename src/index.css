@@ -47,7 +47,7 @@ button {
   /* top: 80%; */
   /* bottom: 0; */
   /* display: flex; */
-  background-image: url("images/icon-dice.svg");
+  background-image: url("../images/icon-dice.svg");
   /* border: 1rem solid #37f1ad; */
   border: none;
   background-color: #00FFA0;

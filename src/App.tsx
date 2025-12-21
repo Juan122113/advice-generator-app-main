@@ -12,7 +12,7 @@ function App() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        handleFadeIn();
+        // handleFadeIn();
         setError(false);
         setVisible(false);
         
@@ -46,14 +46,14 @@ function App() {
 
     // setVisible(false)
 
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await new Promise(resolve => setTimeout(resolve, 50));
     
     setVisible(true);
   }
 
   const HandleClick = () => {
     fetchData();
-    handleFadeIn();
+    // handleFadeIn();
   }
 
   useEffect(() => {
@@ -81,7 +81,7 @@ function App() {
         ) : (
           <>
             <p className='advice-id text-[#00FFA0] text-[.64rem] tracking-[.23rem] text-center font-[500] '>ADVICE #{adviceId}</p>
-            <p className={`advice text-[#cee3e9] text-[1.55rem]  text-center relative bottom-[15px] max-w-[90%] font-[800] ${!visible ? 'opacity-0 transition-opacity duration-200' : 'opacity-100'}`}>"{advice}"</p>
+            <p className={`advice text-[#cee3e9] text-[1.55rem]  text-center relative bottom-[15px] max-w-[90%] font-[800] ${!visible ? 'opacity-0 ' : 'opacity-100 transition-opacity duration-500'}`}>"{advice}"</p>
           </>
         )}
         
