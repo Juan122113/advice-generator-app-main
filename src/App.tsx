@@ -14,6 +14,7 @@ function App() {
         setLoading(true);
         handleFadeIn();
         setError(false);
+        setVisible(false);
         
         const res = await fetch(`https://api.adviceslip.com/advice?timestamp=${Date.now()}`);
 
@@ -26,6 +27,8 @@ function App() {
         // micro-delay: at least 200ms
         await new Promise(resolve => setTimeout(resolve, 200));
 
+        // setVisible(true);
+
         setAdvice(dataJson.slip.advice);
         setAdviceId(dataJson.slip.id);
       } catch (err) {
@@ -36,11 +39,16 @@ function App() {
       }
     };
 
-  const handleFadeIn = () => {
+  const handleFadeIn = async () => {
     // if (!loadingRef.current) return;
     
       // loadingRef.current.style.opacity = 0;
+
+    // setVisible(false)
+
+    await new Promise(resolve => setTimeout(resolve, 500));
     
+    setVisible(true);
   }
 
   const HandleClick = () => {
@@ -54,8 +62,9 @@ function App() {
 
   useEffect(() => {
     // setVisible(false);
-          //  new Promise(resolve => setTimeout(resolve, 50));
-    setVisible(true);
+          //  new Promise(resolve => setTimeout(resolve, 5000));
+    handleFadeIn();
+    // setVisible(true);
   }, [advice]);
 
   return (
@@ -84,7 +93,7 @@ function App() {
 
       </main>
 
-      <footer className="attribution text-[0.688rem] text-center text-[#cee3e9] mt-auto pt-[3rem] ">
+      <footer className="attribution text-[.688rem] text-center text-[#cee3e9] mt-auto pt-[3rem] ">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
         Coded by <a href="https://www.frontendmentor.io/profile/Juan122113" target="_blank">Ammiel Juan Latorre</a>.
       </footer>
