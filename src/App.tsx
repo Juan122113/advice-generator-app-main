@@ -12,7 +12,6 @@ function App() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        // handleFadeIn();
         setError(false);
         setVisible(false);
         
@@ -27,8 +26,6 @@ function App() {
         // micro-delay: at least 200ms
         await new Promise(resolve => setTimeout(resolve, 200));
 
-        // setVisible(true);
-
         setAdvice(dataJson.slip.advice);
         setAdviceId(dataJson.slip.id);
       } catch (err) {
@@ -40,11 +37,6 @@ function App() {
     };
 
   const handleFadeIn = async () => {
-    // if (!loadingRef.current) return;
-    
-      // loadingRef.current.style.opacity = 0;
-
-    // setVisible(false)
 
     await new Promise(resolve => setTimeout(resolve, 50));
     
@@ -53,7 +45,6 @@ function App() {
 
   const HandleClick = () => {
     fetchData();
-    // handleFadeIn();
   }
 
   useEffect(() => {
@@ -61,10 +52,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // setVisible(false);
-          //  new Promise(resolve => setTimeout(resolve, 5000));
     handleFadeIn();
-    // setVisible(true);
   }, [advice]);
 
   return (
@@ -87,9 +75,7 @@ function App() {
         
         <img src="/images/pattern-divider-mobile.svg" alt="pattern divider" className='pattern-divider relative bottom-[30px] ' />
 
-        {/* <div onClick={!loading ? fetchData : undefined} className={`button-container rounded-[50%] bg-[#00FFA0] absolute p-[1.25rem] flex top-[283px] ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-[0_0_1.8rem_0.001rem_#37f1ad] hover:bg-[#25ffaf] cursor-pointer'}`}> */}
-          <button onClick={!loading ? HandleClick : undefined} type='button' className={`${loading ? 'cursor-not-allowed' : 'cursor-pointer '}`} disabled={loading} aria-label='Get new advice'></button>
-        {/* </div> */}
+        <button onClick={!loading ? HandleClick : undefined} type='button' className={`${loading ? 'cursor-not-allowed' : 'cursor-pointer '}`} disabled={loading} aria-label='Get new advice'></button>
 
       </main>
 
